@@ -9,10 +9,10 @@
 
       <form:form method = "POST" action = "registerStudent" >
          <table>
-            <tr>
+            <!--tr>
                 <td><form:label path = "id">Id</form:label></td>
                 <td><form:input path = "id" /></td>
-            </tr>
+            </tr-->
             <tr>
                <td><form:label path = "name">Name</form:label></td>
                <td><form:input path = "name" /></td>
