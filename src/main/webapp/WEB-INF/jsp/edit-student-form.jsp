@@ -9,10 +9,11 @@
 
       <form:form method = "POST" action = "update" >
          <table>
-            <tr>
+            <!--tr>
                 <td><form:label path = "id">Id of Student to be updated</form:label></td>
                 <td><form:input readonly="true"  path = "id" /></td>
-            </tr>
+            </tr-->
+            <form:hidden path="id" />
             <tr>
                <td><form:label path = "name">Name</form:label></td>
                <td><form:input path = "name" /></td>

@@ -26,7 +26,7 @@
     <div class="panel-body">
      <table class="table table-striped table-bordered">
       <tr>
-       <th>Student Id</th>
+       <!--th>Student Id</th-->
        <th>Name</th>
        <th>Department</th>
        <th>Country</th>
@@ -46,7 +46,7 @@
        </c:url>
 
        <tr>
-        <td>${tempStudent.id}</td>
+        <!--td>${tempStudent.id}</td-->
         <td>${tempStudent.name}</td>
         <td>${tempStudent.department}</td>
 		<td>${tempStudent.country}</td>
