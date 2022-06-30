@@ -11,10 +11,10 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name="students")
-public class Student {
+public class Customer {
     @Id @GeneratedValue(strategy= GenerationType.AUTO)
     int id;
-    String name;
-    String department;
-    String country;
+    String fname;
+    String lname;
+    String email;
 }

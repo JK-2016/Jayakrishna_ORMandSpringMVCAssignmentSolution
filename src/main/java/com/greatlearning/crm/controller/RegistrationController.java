@@ -1,11 +1,10 @@
 package com.greatlearning.crm.controller;
 
 
-import com.greatlearning.crm.model.Student;
+import com.greatlearning.crm.model.Customer;
 import com.greatlearning.crm.service.RegistrationService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,17 +24,17 @@ public class RegistrationController {
     }
 
     /****************/
-    @RequestMapping("/showStudentform")
-    public ModelAndView showStudentForm(){
-        return new ModelAndView("student-form","command",new Student());
+    @RequestMapping("/showCustomerForm")
+    public ModelAndView showCustomerForm(){
+        return new ModelAndView("customer-form","command",new Customer());
     }
-    @RequestMapping(value="/registerStudent",method = RequestMethod.POST)
-    public ModelAndView registerStudent(@ModelAttribute("student") Student theStudent){
+    @RequestMapping(value="/registerCustomer",method = RequestMethod.POST)
+    public ModelAndView registerCustomer(@ModelAttribute("student") Customer theCustomer){
         //write code to save  object
 
-        System.out.println(theStudent.getId()+" "+theStudent.getName()+
-                " "+theStudent.getDepartment()+" " +theStudent.getCountry());
-        registrationService.registerStudent(theStudent);
+        System.out.println(theCustomer.getId()+" "+ theCustomer.getFname()+
+                " "+ theCustomer.getLname()+" " + theCustomer.getEmail());
+        registrationService.registerCustomer(theCustomer);
         System.out.println("Student registered Successfully");
         //return new ModelAndView("empform","command",emp);
         return new ModelAndView("redirect:/list");
@@ -53,16 +52,16 @@ public class RegistrationController {
 //       //return "Student";
 //    }
     @GetMapping("/list")
-    public String getAllRegisteredStudents(Model theModel){
-        List<Student> theStudents = registrationService.getRegisteredStudents();
-        theModel.addAttribute("students",theStudents);
-        System.out.println("All registered students: \n"+theStudents.toString());
-        return "list-students";
+    public String getAllRegisteredCustomers(Model theModel){
+        List<Customer> theCustomers = registrationService.getRegisteredCustomers();
+        theModel.addAttribute("students", theCustomers);
+        System.out.println("All registered students: \n"+ theCustomers.toString());
+        return "list-customers";
     }
     @RequestMapping(value="/delete")
     //@ResponseStatus(HttpStatus.NO_CONTENT)
-    public ModelAndView deleteStudentById(@RequestParam("studentId") int theId){
-        registrationService.deleteStudent(theId);
+    public ModelAndView deleteCustomerById(@RequestParam("studentId") int theId){
+        registrationService.deleteCustomer(theId);
         Model theModel = new RedirectAttributesModelMap();
         System.out.println("The student with Id "+theId+" is deleted successfully");
         return new ModelAndView("redirect:/list");
@@ -76,17 +75,17 @@ public class RegistrationController {
 //        return "empeditform";
 //    }
     @RequestMapping(value="/updateForm")
-    public String updateStudent(@RequestParam("studentId") int theId, Model theModel) {
-        Student theStudent = registrationService.getStudent(theId);
+    public String updateCustomer(@RequestParam("studentId") int theId, Model theModel) {
+        Customer theCustomer = registrationService.getCustomer(theId);
         System.out.println("The details of student with id "+theId+" are updated from ");
-        System.out.println(theStudent.toString());
-        theModel.addAttribute("command",theStudent);
-        return "edit-student-form";
+        System.out.println(theCustomer.toString());
+        theModel.addAttribute("command", theCustomer);
+        return "edit-customer-form";
     }
     @RequestMapping(value="/update",method = RequestMethod.POST)
-    public String editsave(@ModelAttribute("student") Student student){
-        registrationService.updateStudentDetails(student.getId(),student);
-        System.out.println("to :"+student.toString());
+    public String editsave(@ModelAttribute("student") Customer customer){
+        registrationService.updateCustomerDetails(customer.getId(), customer);
+        System.out.println("to :"+ customer.toString());
         return ("redirect:/list");
     }
     @RequestMapping(value="/homePage")
@@ -94,39 +93,6 @@ public class RegistrationController {
         return "index";
     }
 
-//    @RequestMapping(value = "/registerStudent", method = RequestMethod.POST)
-//    /*@ResponseStatus(HttpStatus.CREATED)*/
-//    public String registerStudent(@ModelAttribute("student") Student thestudent){
-//        registrationService.registerStudent(thestudent);
-//        return("redirect:/list");
-//    }
-
-/*****************Emp Methods*****************/
-
-//    @RequestMapping("/empform")
-//    public ModelAndView showform(){
-//        return new ModelAndView("empform","command",new Emp());
-//    }
-//    @RequestMapping(value="/save",method = RequestMethod.POST)
-//    public ModelAndView save(@ModelAttribute("emp") Emp emp){
-//        //write code to save emp object
-//        System.out.println(emp.getName()+" "+emp.getSalary()+" "+emp.getDesignation());
-//
-//        //return new ModelAndView("empform","command",emp);
-//        return new ModelAndView("redirect:/viewemp");
-//    }
-//
-//    @RequestMapping("/viewemp")
-//    public ModelAndView viewemp(){
-//        //write the code to get all employees from DAO
-//        //writing manual code for easy understanding
-//        List<Emp> list=new ArrayList<Emp>();
-//        list.add(new Emp(1,"rahul",35000f,"S.Engineer"));
-//        list.add(new Emp(2,"aditya",25000f,"IT Manager"));
-//        list.add(new Emp(3,"sachin",55000f,"Care Taker"));
-//
-//        return new ModelAndView("viewemp","list",list);
-//    }
 
 
 }

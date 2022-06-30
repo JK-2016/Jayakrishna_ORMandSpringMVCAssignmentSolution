@@ -14,22 +14,22 @@
                 <td><form:input readonly="true"  path = "id" /></td>
             </tr-->
             <form:hidden path="id" />
+           <tr>
+                  <td><form:label path = "fname">First Name</form:label></td>
+                  <td><form:input path = "fname" /></td>
+               </tr>
+               <tr>
+                  <td><form:label path = "lname">Last Name</form:label></td>
+                  <td><form:input path = "lname" /></td>
+               </tr>
             <tr>
-               <td><form:label path = "name">Name</form:label></td>
-               <td><form:input path = "name" /></td>
-            </tr>
-            <tr>
-               <td><form:label path = "department">Department</form:label></td>
-               <td><form:input path = "department" /></td>
-            </tr>
-			<tr>
-               <td><form:label path = "country">Country</form:label></td>
-               <td><form:input path = "country" /></td>
-            </tr>
+                  <td><form:label path = "email">Email</form:label></td>
+                  <td><form:input type="email"  path = "email" /></td>
+               </tr>
 
             <tr>
                <td colspan = "2">
-                  <input type = "submit" value = "Update"/>
+                  <input type = "submit" value = "Save"/>
                </td>
             </tr>
          </table>

@@ -1,8 +1,8 @@
 package com.greatlearning.crm.service;
 
 
-import com.greatlearning.crm.model.Student;
-import com.greatlearning.crm.repository.StudentRepository;
+import com.greatlearning.crm.model.Customer;
+import com.greatlearning.crm.repository.CustomerRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,27 +13,27 @@ import java.util.List;
 
 public class RegistrationService {
     @Autowired
-    private final StudentRepository studentRepository;
-    public RegistrationService(StudentRepository studentRepository){
-        this.studentRepository = studentRepository;
+    private final CustomerRepository customerRepository;
+    public RegistrationService(CustomerRepository customerRepository){
+        this.customerRepository = customerRepository;
     }
 
-    public Student registerStudent(Student student){
-        return this.studentRepository.registerStudent(student);
+    public Customer registerCustomer(Customer customer){
+        return this.customerRepository.registerCustomer(customer);
     }
-    public List<Student> getRegisteredStudents(){
-        return this.studentRepository.getRegisteredStudents();
+    public List<Customer> getRegisteredCustomers(){
+        return this.customerRepository.getRegisteredCustomers();
     }
-    public Student updateStudentDetails(int id, Student student){
-        return this.studentRepository.updateStudentDetails(id,student);
+    public Customer updateCustomerDetails(int id, Customer customer){
+        return this.customerRepository.updateCustomerDetails(id, customer);
     }
-    public void deleteStudent(int id){
+    public void deleteCustomer(int id){
         System.out.println("Student with the following Id is deleted: "+ id);
-        this.studentRepository.deleteStudentbyId(id);
+        this.customerRepository.deleteCustomerById(id);
         return;
     }
 
-    public Student getStudent(int id) {
-        return this.studentRepository.getStudentbyId(id);
+    public Customer getCustomer(int id) {
+        return this.customerRepository.getCustomerById(id);
     }
 }

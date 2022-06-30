@@ -16,7 +16,7 @@
    <hr />
 
    <input type="button" value="Register Student"
-    onclick="window.location.href='showStudentform';"
+    onclick="window.location.href='showCustomerForm';"
     class="btn btn-primary" />
     <br/><br/>
    <div class="panel panel-info">
@@ -27,9 +27,9 @@
      <table class="table table-striped table-bordered">
       <tr>
        <!--th>Student Id</th-->
-       <th>Name</th>
-       <th>Department</th>
-       <th>Country</th>
+       <th>First Name</th>
+       <th>Last Name</th>
+       <th>Email</th>
       </tr>
 
       <!-- loop over and print our customers -->
@@ -47,9 +47,9 @@
 
        <tr>
         <!--td>${tempStudent.id}</td-->
-        <td>${tempStudent.name}</td>
-        <td>${tempStudent.department}</td>
-		<td>${tempStudent.country}</td>
+        <td>${tempStudent.fname}</td>
+        <td>${tempStudent.lname}</td>
+		<td>${tempStudent.email}</td>
 
         <td>
          <!-- display the update link -->

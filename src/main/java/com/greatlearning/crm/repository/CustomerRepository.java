@@ -1,7 +1,7 @@
 package com.greatlearning.crm.repository;
 
 
-import com.greatlearning.crm.model.Student;
+import com.greatlearning.crm.model.Customer;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -16,27 +16,27 @@ import java.util.List;
 @Repository
 @Component
 @Transactional
-public class StudentRepository {
+public class CustomerRepository {
     @Autowired
     private SessionFactory sessionFactory;
-    private List<Student> students = new ArrayList<>();
+    private List<Customer> customers = new ArrayList<>();
 
-    public Student registerStudent(Student student){
+    public Customer registerCustomer(Customer customer){
         Session session = sessionFactory.getCurrentSession();
-        session.persist(student);
+        session.persist(customer);
         //students.add(student);
         //System.out.println("Registered Students:"+students.toString());
-        return student;
+        return customer;
     }
 
-    public List<Student> getRegisteredStudents(){
+    public List<Customer> getRegisteredCustomers(){
         Session session = sessionFactory.getCurrentSession();
-        List<Student> listStudents = session.createQuery("from Student",Student.class).getResultList();
-        return listStudents;
+        List<Customer> listCustomers = session.createQuery("from Customer", Customer.class).getResultList();
+        return listCustomers;
     }
-    public Student updateStudentDetails(int id,Student updatedStudent){
+    public Customer updateCustomerDetails(int id, Customer updatedCustomer){
         Session session = sessionFactory.getCurrentSession();
-        session.saveOrUpdate(updatedStudent);
+        session.saveOrUpdate(updatedCustomer);
 
 //            Optional<Student> studentOptional = students
 //                                               .stream()
@@ -53,16 +53,16 @@ public class StudentRepository {
             return null;
     }
 
-    public void deleteStudentbyId(int id){
+    public void deleteCustomerById(int id){
         Session session = sessionFactory.getCurrentSession();
-        session.delete(session.get(Student.class,id));
+        session.delete(session.get(Customer.class,id));
         //students.removeIf(student -> student.getId()==id);
         return;
     }
 
 
-    public Student getStudentbyId(int id) {
+    public Customer getCustomerById(int id) {
         Session session = sessionFactory.getCurrentSession();
-        return session.get(Student.class,id);
+        return session.get(Customer.class,id);
     }
 }
