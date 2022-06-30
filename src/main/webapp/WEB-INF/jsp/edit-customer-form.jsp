@@ -1,11 +1,12 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html>
    <head>
-      <title>Spring MVC Form Handling</title>
+      <title>Update Customer</title>
    </head>
 
    <body>
-      <h2>Student Details Update</h2>
+      <h1>Customer Relationship Management</h1>
+      <h2>Save Customer</h2>
 
       <form:form method = "POST" action = "update" >
          <table>

@@ -16,6 +16,7 @@ import java.util.List;
 
 @Controller
 @Component
+//@RequestMapping("/list-customers")
 public class RegistrationController {
     @Autowired
     private RegistrationService registrationService;
@@ -24,6 +25,10 @@ public class RegistrationController {
     }
 
     /****************/
+    @RequestMapping("/")
+    public String redirectPage() {
+        return "redirect:/list";
+    }
     @RequestMapping("/showCustomerForm")
     public ModelAndView showCustomerForm(){
         return new ModelAndView("customer-form","command",new Customer());
@@ -88,10 +93,10 @@ public class RegistrationController {
         System.out.println("to :"+ customer.toString());
         return ("redirect:/list");
     }
-    @RequestMapping(value="/homePage")
-    public String showHomePage() {
-        return "index";
-    }
+//    @RequestMapping(value="/homePage")
+//    public String showHomePage() {
+//        return "index";
+//    }
 
 
 
