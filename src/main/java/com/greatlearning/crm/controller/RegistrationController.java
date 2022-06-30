@@ -59,13 +59,13 @@ public class RegistrationController {
     @GetMapping("/list")
     public String getAllRegisteredCustomers(Model theModel){
         List<Customer> theCustomers = registrationService.getRegisteredCustomers();
-        theModel.addAttribute("students", theCustomers);
-        System.out.println("All registered students: \n"+ theCustomers.toString());
+        theModel.addAttribute("customers", theCustomers);
+        System.out.println("All registered customers: \n"+ theCustomers.toString());
         return "list-customers";
     }
     @RequestMapping(value="/delete")
     //@ResponseStatus(HttpStatus.NO_CONTENT)
-    public ModelAndView deleteCustomerById(@RequestParam("studentId") int theId){
+    public ModelAndView deleteCustomerById(@RequestParam("customerId") int theId){
         registrationService.deleteCustomer(theId);
         Model theModel = new RedirectAttributesModelMap();
         System.out.println("The student with Id "+theId+" is deleted successfully");
@@ -80,7 +80,7 @@ public class RegistrationController {
 //        return "empeditform";
 //    }
     @RequestMapping(value="/updateForm")
-    public String updateCustomer(@RequestParam("studentId") int theId, Model theModel) {
+    public String updateCustomer(@RequestParam("customerId") int theId, Model theModel) {
         Customer theCustomer = registrationService.getCustomer(theId);
         System.out.println("The details of student with id "+theId+" are updated from ");
         System.out.println(theCustomer.toString());
@@ -88,7 +88,7 @@ public class RegistrationController {
         return "edit-customer-form";
     }
     @RequestMapping(value="/update",method = RequestMethod.POST)
-    public String editsave(@ModelAttribute("student") Customer customer){
+    public String editsave(@ModelAttribute("customer") Customer customer){
         registrationService.updateCustomerDetails(customer.getId(), customer);
         System.out.println("to :"+ customer.toString());
         return ("redirect:/list");
