@@ -5,7 +5,7 @@
    </head>
 
    <body>
-      <h1>Customer Relationship Management</h1>
+      <h1 style="background-color:powderblue;">Customer Relationship Management</h1>
       <h2>Save Customer</h2>
 
       <form:form method = "POST" action = "update" >
