@@ -29,7 +29,8 @@
             </tr>
 
             <tr>
-               <td colspan = "2">
+               <td></td>
+               <td >
                   <input type = "submit" value = "Save"/>
                </td>
             </tr>
