@@ -16,7 +16,7 @@ import java.util.List;
 
 @Controller
 @Component
-//@RequestMapping("/list-customers")
+
 public class RegistrationController {
     @Autowired
     private RegistrationService registrationService;
