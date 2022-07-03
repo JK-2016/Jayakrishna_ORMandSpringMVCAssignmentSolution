@@ -36,6 +36,9 @@
             </tr>
          </table>
       </form:form>
+      <br>
+
+      <a href="list">Back to List</a>
    </body>
 
 </html>
